@@ -4,7 +4,8 @@
 
 .container {
   width: 3.2rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+  float: left; }
   .container ul {
     width: 3.16rem;
     height: 3.16rem;
@@ -21,7 +22,8 @@
   font-size: 0.1rem;
   padding: 0.2rem 0;
   margin: 0 auto;
-  width: 3.2rem; }
+  width: 3.2rem;
+  float: left; }
   .oper #level {
     width: 0.5rem;
     height: 0.1rem; }
