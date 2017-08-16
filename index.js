@@ -160,55 +160,89 @@ btnsuspend.onclick = function(){
     clearInterval(timer);
 }
 //给文档加点击下键事件
-function hua(e){
-    //获取按下的是什么键
-    switch(e){
-        //左键
-        case 37:{
-            if(direction == 39)return false;
-            direction = e;
-            break;
+    document.addEventListener("keydown" , function(e){
+        e=e || window.event;
+        //获取按下的是什么键
+        switch(e.keyCode){
+            //左键
+            case 37:{
+                if(direction == 39)return false;
+                direction = e.keyCode;
+                break;
+            }
+            //上键
+            case 38:{
+                if(direction == 40)return false;
+                direction = e.keyCode;
+                break;
+            }
+            //右键
+            case 39:{
+                if(direction == 37)return false;
+                direction = e.keyCode;
+                break;
+            } 
+            //下键
+            case 40:{
+                if(direction == 38)return false;
+                direction = e.keyCode;
+                break;
+            }
         }
-        //上键
-        case 38:{
-            if(direction == 40)return false;
-            direction = e;
-            break;
-        }
-        //右键
-        case 39:{
-            if(direction == 37)return false;
-            direction = e;
-            break;
-        } 
-        //下键
-        case 40:{
-            if(direction == 38)return false;
-            direction = e;
-            break;
+    } , false)
+
+    function hua(e){
+        //获取按下的是什么键
+        switch(e){
+            //左键
+            case 37:{
+                if(direction == 39)return false;
+                direction = e;
+                break;
+            }
+            //上键
+            case 38:{
+                if(direction == 40)return false;
+                direction = e;
+                break;
+            }
+            //右键
+            case 39:{
+                if(direction == 37)return false;
+                direction = e;
+                break;
+            } 
+            //下键
+            case 40:{
+                if(direction == 38)return false;
+                direction = e;
+                break;
+            }
         }
     }
-}
 
-//位置改变
+    //位置改变
 
-//开启滑动
-hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-hammertime
-    .on('swipeleft', logEventType1)
-    .on('swiperight', logEventType3)
-    .on('swipeup',logEventType2)
-    .on('swipedown', logEventType4);
+    //开启滑动
+    hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+    hammertime
+        .on('swipeleft', logEventType1)
+        .on('swiperight', logEventType3)
+        .on('swipeup',logEventType2)
+        .on('swipedown', logEventType4);
 
-function logEventType1() {
-    hua(37);
-}
-function logEventType2() {
-    hua(38);
-}
-function logEventType3() {
-    hua(39);
-}
-function logEventType4() {
-    hua(40);
-}
+    function logEventType1() {
+        hua(37);
+    }
+    function logEventType2() {
+        hua(38);
+    }
+    function logEventType3() {
+        hua(39);
+    }
+    function logEventType4() {
+        hua(40);
+    }
+
+
+
